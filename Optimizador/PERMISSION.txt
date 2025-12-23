@@ -1,0 +1,16 @@
+AUTORIZACIÓN PARA PRUEBAS DE SEGURIDAD
+
+Yo, __________________________ (propietario/representante), propietario/representante autorizado del dominio/sistema:
+
+ - Dominio/Sistema objetivo: ______________________________
+ - Alcance (URLs/endpoints permitidos): ______________________
+ - Fechas permitidas: desde ____/____/_____ hasta ____/____/_____
+ - Tipos de pruebas permitidas: pruebas de reconocimiento, pruebas manuales de XSS/CSRF/CORS, control de acceso, revisión de cabeceras/TLS, pruebas de subida de ficheros, pruebas con proxy/intercept.
+ - Restricciones: No se permiten pruebas destructivas que borren o modifiquen permanentemente datos sin aprobación adicional. Evitar pruebas de denegación de servicio (DoS).
+
+Autorizo a: ________________________ (nombre del auditor/equipo)
+Contacto: ___________________________
+
+Firma: ____________________________   Fecha: ____/____/____
+
+Notas: Mantener evidencia (capturas, logs) y comunicar hallazgos de forma responsable.

