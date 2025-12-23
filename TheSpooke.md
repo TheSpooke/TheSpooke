@@ -1,5 +1,5 @@
 # Hola, soy TheSpooke 👋
-### Full Stack Developer | Freelance & Autodidacta
+### Full Stack Developer | Freelance & Autodidacta     CV (https://github.com/TheSpooke/TheSpooke/blob/dc8fd51b53207999010f5e78ac31f424b94bb75b/CV/Curr%C3%ADculum%20Informatica%20y%20desarrollo%20benjamin%20medina.pdf)
 
 Desarrollador independiente con una fuerte base técnica construida de manera autodidacta. Me especializo en crear soluciones robustas, desde software de sistema hasta aplicaciones web modernas y gestión de servidores de alto rendimiento.
 
