@@ -1,0 +1,668 @@
+/* ===== VICE CITY RP STYLES ===== */
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    /* scroll-behavior: smooth; - Removed to prevent conflict with Lenis */
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #384359;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* ===== FALLBACK STYLES FOR ELEMENTS ===== */
+/* Ensure all elements are visible by default, even without JavaScript */
+.brand-card,
+.brand-feature-card,
+.brand-text,
+.typing-text,
+.counter,
+.brand-button-primary,
+.brand-button-outline {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    visibility: visible !important;
+}
+
+/* ===== LOADING SCREEN ===== */
+.loading-screen {
+    backdrop-filter: blur(10px);
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-progress {
+    animation: loading 3s ease-in-out forwards;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+}
+
+/* ===== NAVIGATION ===== */
+.brand-glass {
+    background: rgba(19, 24, 38, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(191, 31, 60, 0.2);
+}
+
+.nav-link {
+    color: rgba(229, 229, 229, 0.8);
+    transition: all 0.3s ease;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    color: #BF1F3C;
+}
+
+.brand-button {
+    background: linear-gradient(135deg, #BF1F3C, #F29580, #384359);
+    color: #050508;
+    border: none;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.brand-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(191, 31, 60, 0.3);
+}
+
+.brand-button-outline {
+    background: transparent;
+    border: 2px solid rgba(191, 31, 60, 0.5);
+    color: #BF1F3C;
+    transition: all 0.3s ease;
+}
+
+.brand-button-outline:hover {
+    background: rgba(191, 31, 60, 0.1);
+    border-color: #BF1F3C;
+}
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ===== VICE TEXT EFFECTS ===== */
+.brand-text {
+    position: relative;
+    text-shadow: 0 0 10px rgba(191, 31, 60, 0.5);
+}
+
+.brand-text::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shimmer 3s infinite;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ===== TYPING TEXT EFFECT ===== */
+.typing-text {
+    /* Remove problematic animations that might hide content */
+    /* overflow: hidden;
+    border-right: 2px solid #BF1F3C;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite; */
+    
+    /* Fallback: just show the text normally */
+    display: block;
+    opacity: 1;
+}
+
+/* Keep animations for when JavaScript is working */
+.typing-text.js-enabled {
+    overflow: hidden;
+    border-right: 2px solid #BF1F3C;
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #BF1F3C; }
+}
+
+/* ===== VICE CARDS ===== */
+.brand-card {
+    background: rgba(26, 34, 56, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(191, 31, 60, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    /* Ensure cards are always visible */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.brand-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.brand-card:hover::before {
+    left: 100%;
+}
+
+.brand-card:hover {
+    border-color: rgba(191, 31, 60, 0.5);
+    box-shadow: 0 10px 40px rgba(191, 31, 60, 0.2);
+    transform: translateY(-5px);
+}
+
+/* ===== FEATURE CARDS ===== */
+.brand-feature-card {
+    background: rgba(26, 34, 56, 0.3);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 122, 0, 0.2);
+    transition: all 0.3s ease;
+    /* Ensure feature cards are always visible */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.brand-feature-card:hover {
+    transform: scale(1.02);
+    border-color: rgba(191, 31, 60, 0.5);
+    box-shadow: 0 20px 60px rgba(191, 31, 60, 0.2);
+}
+
+/* ===== SOCIAL LINKS ===== */
+.brand-social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(26, 34, 56, 0.3);
+    border: 1px solid rgba(255, 122, 0, 0.3);
+    border-radius: 8px;
+    color: rgba(229, 229, 229, 0.7);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.brand-social-link:hover {
+    background: rgba(191, 31, 60, 0.1);
+    border-color: #BF1F3C;
+    color: #BF1F3C;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(191, 31, 60, 0.3);
+}
+
+/* ===== TERMINAL STYLES ===== */
+.brand-terminal {
+    background: rgba(19, 24, 38, 0.8);
+    border: 1px solid rgba(191, 31, 60, 0.3);
+    font-family: 'Orbitron', monospace;
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-terminal::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #BF1F3C, transparent);
+    animation: scan-line 2s linear infinite;
+}
+
+@keyframes scan-line {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+/* ===== COUNTER ANIMATION ===== */
+.counter {
+    font-variant-numeric: tabular-nums;
+    /* Ensure counters show their target value by default */
+    opacity: 1;
+}
+
+/* ===== BUTTON STYLES ===== */
+.brand-button-primary {
+    background: linear-gradient(135deg, #BF1F3C, #F29580, #384359);
+    color: #131826;
+    border: none;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    /* Ensure buttons are always visible */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.brand-button-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(191, 31, 60, 0.4);
+}
+
+.brand-button-outline {
+    background: transparent;
+    border: 2px solid #FF7A00;
+    color: #FF7A00;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    /* Ensure buttons are always visible */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.brand-button-outline:hover {
+    background: #BF1F3C;
+    color: #384359;
+    box-shadow: 0 10px 30px rgba(191, 31, 60, 0.3);
+}
+
+/* ===== FLOATING ANIMATIONS ===== */
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px);
+    }
+    50% { 
+        transform: translateY(-20px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* ===== GLOW EFFECTS ===== */
+@keyframes glow {
+    0% { 
+        box-shadow: 0 0 20px rgba(191, 31, 60, 0.3);
+    }
+    100% { 
+        box-shadow: 0 0 40px rgba(191, 31, 60, 0.6);
+    }
+}
+
+.animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* ===== GRADIENT BACKGROUNDS ===== */
+.bg-brand-gradient {
+    background: linear-gradient(135deg, #BF1F3C 0%, #F29580 50%, #BF1F3C 100%);
+}
+
+.bg-brand-gradient-alt {
+    background: linear-gradient(45deg, #384359 0%, #384359 50%, #BF1F3C 100%);
+}
+
+.bg-brand-sunset {
+    background: linear-gradient(180deg, #BF1F3C 0%, #F29580 50%, #384359 100%);
+}
+
+.bg-brand-ocean {
+    background: linear-gradient(180deg, #384359 0%, #384359 50%, #131826 100%);
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+@keyframes slideUp {
+    0% { 
+        transform: translateY(100px); 
+        opacity: 0; 
+    }
+    100% { 
+        transform: translateY(0); 
+        opacity: 1; 
+    }
+}
+
+.animate-slide-up {
+    animation: slideUp 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    0% { 
+        opacity: 0; 
+    }
+    100% { 
+        opacity: 1; 
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 1s ease-out;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+    .floating-elements {
+        opacity: 0.5;
+    }
+    
+    .brand-text {
+        font-size: 3rem;
+    }
+    
+    .typing-text {
+        font-size: 1rem;
+    }
+}
+
+/* ===== ACCESSIBILITY ===== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .typing-text {
+        animation: none;
+        border-right: none;
+    }
+    
+    .floating-elements {
+        display: none;
+    }
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(26, 26, 31, 0.5);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #FF7A00, #FFA94D);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #FFA94D, #FF7A00);
+}
+
+/* ===== SELECTION STYLES ===== */
+::selection {
+    background: rgba(191, 31, 60, 0.3);
+    color: #ffffff;
+}
+
+::-moz-selection {
+    background: rgba(191, 31, 60, 0.3);
+    color: #ffffff;
+}
+
+/* ===== FOCUS STYLES ===== */
+*:focus {
+    outline: 2px solid #BF1F3C;
+    outline-offset: 2px;
+}
+
+/* ===== HOVER EFFECTS ===== */
+.group\/item:hover i {
+    transform: scale(1.1);
+    color: #BF1F3C;
+}
+
+/* ===== GLASS MORPHISM ===== */
+.backdrop-blur-md {
+    backdrop-filter: blur(12px);
+}
+
+.backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+}
+
+/* ===== GRADIENT TEXT ===== */
+.bg-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ===== BORDER GRADIENTS ===== */
+.border-brand-gradient {
+    border-image: linear-gradient(135deg, #BF1F3C, #F29580, #384359) 1;
+}
+
+/* ===== SHADOW EFFECTS ===== */
+.shadow-vice {
+    box-shadow: 0 10px 40px rgba(191, 31, 60, 0.2);
+}
+
+.shadow-brand-lg {
+    box-shadow: 0 20px 60px rgba(191, 31, 60, 0.3);
+}
+
+/* ===== ANIMATION DELAYS ===== */
+.delay-100 {
+    animation-delay: 0.1s;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
+
+.delay-500 {
+    animation-delay: 0.5s;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    .floating-elements,
+    .brand-terminal::before {
+        display: none !important;
+    }
+    
+    body {
+        background: white !important;
+        color: black !important;
+    }
+    
+    .brand-card,
+    .brand-feature-card {
+        border: 1px solid #ccc !important;
+        background: white !important;
+    }
+    
+    .bg-brand-gradient,
+    .bg-brand-gradient-alt,
+    .bg-brand-sunset,
+    .bg-brand-ocean {
+        background: #f0f0f0 !important;
+    }
+}
+
+/* ===== SPECIAL EFFECTS ===== */
+.neon-glow {
+    text-shadow: 
+        0 0 5px #BF1F3C,
+        0 0 10px #BF1F3C,
+        0 0 15px #BF1F3C,
+        0 0 20px #BF1F3C;
+}
+
+.neon-border {
+    box-shadow: 
+        0 0 5px #BF1F3C,
+        0 0 10px #BF1F3C,
+        0 0 15px #BF1F3C,
+        inset 0 0 5px #BF1F3C;
+}
+
+/* ===== LOADING ANIMATIONS ===== */
+@keyframes pulse-vice {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.05);
+    }
+}
+
+.animate-pulse-vice {
+    animation: pulse-vice 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ===== GRID PATTERNS ===== */
+.brand-grid {
+    background-image: 
+        linear-gradient(rgba(191, 31, 60, 0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(191, 31, 60, 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.text-brand-gradient {
+    background: linear-gradient(135deg, #BF1F3C, #F29580, #384359);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.border-brand-gold {
+    border-color: #BF1F3C;
+}
+
+.border-brand-amber {
+    border-color: #F29580;
+}
+
+.border-brand-amber {
+    border-color: #F29580;
+}
+
+.border-brand-gold {
+    border-color: #BF1F3C;
+}
+
+/* ===== INTERACTIVE ELEMENTS ===== */
+.interactive-hover {
+    transition: all 0.3s ease;
+}
+
+.interactive-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(191, 31, 60, 0.2);
+}
+
+/* ===== BRAND COLORS ===== */
+.text-brand-gold { color: #BF1F3C; }
+.text-brand-amber { color: #F29580; }
+.text-brand-amber { color: #F29580; }
+.text-brand-gold { color: #BF1F3C; }
+.text-brand-yellow { color: #F9CB6C; }
+.text-brand-blue { color: #384359; }
+
+.bg-brand-gold { background-color: #BF1F3C; }
+.bg-brand-amber { background-color: #F29580; }
+.bg-brand-amber { background-color: #F29580; }
+.bg-brand-gold { background-color: #BF1F3C; }
+.bg-brand-yellow { background-color: #F9CB6C; }
+.bg-brand-blue { background-color: #384359; }
+
+/* ===== FINAL TOUCHES ===== */
+.brand-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.brand-section {
+    padding: 5rem 0;
+}
+
+.brand-title {
+    font-family: 'Orbitron', monospace;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.brand-subtitle {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+/* ===== JAVASCRIPT ENHANCEMENT CLASSES ===== */
+/* These classes are added by JavaScript for enhanced animations */
+.js-loaded .brand-card,
+.js-loaded .brand-feature-card {
+    /* JavaScript will handle animations for these elements */
+}
+
+/* ===== NO-JS FALLBACKS ===== */
+/* Ensure everything works without JavaScript */
+.no-js .loading-screen {
+    display: none;
+}
+
+.no-js .typing-text {
+    border-right: none;
+    animation: none;
+    overflow: visible;
+    white-space: normal;
+}
+
+.no-js .counter::after {
+    content: attr(data-target);
+}

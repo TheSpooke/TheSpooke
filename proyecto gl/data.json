@@ -1,0 +1,114 @@
+{
+  "products": [
+    {
+      "id": "vip1",
+      "name": "Membresía VIP Bronce",
+      "category": "vip",
+      "price": 9.99,
+      "image": "assets/vip_bronce_pack.png",
+      "desc": "1 Mes de Prioridad en Cola, Kit semanal.",
+      "rarity": "Común"
+    },
+    {
+      "id": "vip2",
+      "name": "Membresía VIP Oro",
+      "category": "vip",
+      "price": 29.99,
+      "image": "assets/vip_oro_pack.png",
+      "desc": "Permanente. Máxima prioridad en Cola, Tag en Discord.",
+      "rarity": "Exótico"
+    },
+    {
+      "id": "item1",
+      "name": "Maletín de Dinero (100k)",
+      "category": "items",
+      "price": 4.99,
+      "image": "assets/cash_case_pack.png",
+      "desc": "$100,000 ICC para empezar tu vida criminal con ventaja.",
+      "rarity": "Útil"
+    }
+  ],
+  "autos": [
+    {
+      "id": "car1",
+      "name": "Pegassi Zentorno",
+      "type": "Deportivo",
+      "price": 34.99,
+      "speed": 95,
+      "acc": 88,
+      "rarity": "Exótico",
+      "img": "assets/zentorno_car.png"
+    },
+    {
+      "id": "car2",
+      "name": "Benefactor Dubsta",
+      "type": "SUV",
+      "price": 19.99,
+      "speed": 75,
+      "acc": 60,
+      "rarity": "Común",
+      "img": "https://placehold.co/600x400/1a1a1f/F2A847?text=Dubsta"
+    },
+    {
+      "id": "car3",
+      "name": "Truffade Adder",
+      "type": "Deportivo",
+      "price": 49.99,
+      "speed": 100,
+      "acc": 92,
+      "rarity": "Exótico",
+      "img": "https://placehold.co/600x400/1a1a1f/BF6B21?text=Adder"
+    },
+    {
+      "id": "car4",
+      "name": "Vapid Bullet",
+      "type": "Clásico",
+      "price": 24.99,
+      "speed": 85,
+      "acc": 80,
+      "rarity": "Raro",
+      "img": "https://placehold.co/600x400/1a1a1f/ffffff?text=Bullet"
+    }
+  ],
+  "coins": [
+    {
+      "id": "coin_starter",
+      "name": "Starter Pack (100 Coins)",
+      "price": 5,
+      "image": "https://placehold.co/400x300/171a21/F2A847?text=100+COINS",
+      "desc": "Empieza con algo de ventaja en tus ahorros premium.",
+      "rarity": "Común"
+    },
+    {
+      "id": "coin_standard",
+      "name": "Standard Pack (300 Coins)",
+      "price": 15,
+      "image": "https://placehold.co/400x300/171a21/BF6B21?text=300+COINS",
+      "desc": "Suficiente para el primer auto VIP. El empujón ideal.",
+      "rarity": "Raro"
+    },
+    {
+      "id": "coin_advanced",
+      "name": "Advanced Pack (600 Coins)",
+      "price": 30,
+      "image": "https://placehold.co/400x300/171a21/BF1F3C?text=600+COINS",
+      "desc": "Para jugadores comprometidos con el confort VIP.",
+      "rarity": "Exótico"
+    },
+    {
+      "id": "coin_ultimate",
+      "name": "Ultimate Pack (1000 Coins)",
+      "price": 50,
+      "image": "assets/coin_ultimate_pack.png",
+      "desc": "El poder adquisitivo máximo para comprar los autos más exclusivos.",
+      "rarity": "Legendario"
+    }
+  ],
+  "orders": [],
+  "settings": {
+    "heroTitle": "GLOBAL LIFE RP",
+    "heroSubtitle": "La mejor experiencia de Roleplay con economía realista",
+    "discordUrl": "https://discord.gg/",
+    "heroVideo": "assets/hero_video.mp4"
+  }
+}

@@ -1,0 +1,1 @@
+fetch("http://localhost:3000/api/admin/give-coins", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ hex: "license:fake", amount: 100 }) }).then(r=>r.text().then(t=>console.log(r.status, t)));
